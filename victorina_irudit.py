@@ -28,12 +28,12 @@ def listen_command():
     except sr.UnknownValueError:
         return "ошибка"
     except sr.RequestError as e:
-        return 'ошибка'
+        print(e)
     except TimeoutError:
         return 'ошибка'  
 
 def delay_pause(r, source):
-    r.pause_threshold = 0.5
+    r.pause_threshold = 1
     r.adjust_for_ambient_noise(source, duration=1)
 
 
